@@ -1,0 +1,50 @@
+@model trainerapp.Models.TrainerAppModels.ClientPackageSubscriptions
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>ClientPackageSubscriptions</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ClientPackageSubscriptionsId" />
+        <div class="form-group">
+            <label asp-for="ClientId" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="ClientId" class="form-control" asp-items="ViewBag.ClientId"></select>
+                <span asp-validation-for="ClientId" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PersonalTrainerId" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="PersonalTrainerId" class="form-control" asp-items="ViewBag.PersonalTrainerId"></select>
+                <span asp-validation-for="PersonalTrainerId" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="TrainingPackageId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="TrainingPackageId" class="form-control" />
+                <span asp-validation-for="TrainingPackageId" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
